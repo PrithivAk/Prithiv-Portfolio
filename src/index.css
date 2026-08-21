@@ -1,0 +1,154 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+}
+
+.font-display {
+  font-family: 'Orbitron', 'Syne', sans-serif;
+}
+
+:root {
+  --neon-blue: #00F0FF;
+  --dark-steel: #1A1A24;
+  --circuit-line: rgba(0, 240, 255, 0.1);
+}
+
+.circuit-bg {
+  background-image: linear-gradient(var(--circuit-line) 1px, transparent 1px), linear-gradient(90deg, var(--circuit-line) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: center;
+}
+
+.circuit-trace {
+  position: absolute;
+  background: var(--neon-blue);
+  box-shadow: 0 0 8px var(--neon-blue);
+}
+
+.hex-border {
+  clip-path: polygon(10px 0%, calc(100% - 10px) 0%, 100% 10px, 100% calc(100% - 10px), calc(100% - 10px) 100%, 10px 100%, 0% calc(100% - 10px), 0% 10px);
+}
+
+.status-pulse {
+  width: 8px;
+  height: 8px;
+  background: var(--neon-blue);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--neon-blue);
+}
+
+.panel-label {
+  font-family: 'Courier New', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--neon-blue);
+  opacity: 0.9;
+}
+
+@keyframes spinReverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.animate-spin-reverse {
+  animation: spinReverse 10s linear infinite;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes powerLightning {
+  0% {
+    opacity: 0.2;
+    box-shadow: 0 0 4px #f59e0b;
+    filter: brightness(1);
+  }
+  25% {
+    opacity: 1;
+    box-shadow: 0 0 16px #f59e0b, 0 0 24px #fbbf24;
+    filter: brightness(1.8);
+  }
+  50% {
+    opacity: 0.4;
+    box-shadow: 0 0 8px #00f0ff;
+    filter: brightness(1.2);
+  }
+  75% {
+    opacity: 1;
+    box-shadow: 0 0 20px #00f0ff, 0 0 30px #38bdf8;
+    filter: brightness(2);
+  }
+  100% {
+    opacity: 0.3;
+    box-shadow: 0 0 4px #f59e0b;
+    filter: brightness(1);
+  }
+}
+
+@keyframes photonDataStream {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+.power-lightning-arc {
+  animation: powerLightning 1.5s ease-in-out infinite alternate;
+}
+
+.photon-light-beam {
+  background: linear-gradient(90deg, transparent, #00f0ff, #38bdf8, #f59e0b, #00f0ff, transparent);
+  background-size: 200% 100%;
+  animation: photonDataStream 1.2s linear infinite;
+}
+
+@keyframes waterDropOpen {
+  0% {
+    opacity: 0;
+    transform: scale(0.2) translateY(-40px);
+    border-radius: 50%;
+    filter: blur(8px);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.04) translateY(4px);
+    border-radius: 1rem;
+    filter: blur(0px);
+  }
+  80% {
+    transform: scale(0.98) translateY(-2px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-water-drop {
+  opacity: 0;
+  animation: waterDropOpen 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+
