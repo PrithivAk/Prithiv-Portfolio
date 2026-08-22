@@ -95,7 +95,7 @@ export const resumeData: ResumeData = {
         "Streamlit Cloud Live Deployment"
       ],
       githubUrl: "https://github.com/PrithivAk",
-      liveDemoUrl: "https://github.com/PrithivAk",
+      liveDemoUrl: "https://zoar-ai.vercel.app/",
       agents: [
         {
           name: "Wellness Tracking Agent",

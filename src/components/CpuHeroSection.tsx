@@ -141,10 +141,10 @@ export const CpuHeroSection: React.FC<CpuHeroSectionProps> = ({
                     soundFX.playPulseSound();
                     onJumpToZoar();
                   }}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-amber-950/60 hover:bg-amber-900/60 border border-amber-500/40 text-xs font-mono text-amber-300 transition-colors"
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-cyan-950/80 hover:bg-cyan-900 border border-cyan-500/50 text-xs font-mono text-cyan-300 font-bold transition-all shadow-[0_0_12px_rgba(6,182,212,0.25)]"
                 >
-                  <Layers className="w-3.5 h-3.5 text-amber-400" />
-                  <span>Zoar AI Playground</span>
+                  <Activity className="w-3.5 h-3.5 text-emerald-400 animate-pulse" />
+                  <span>Run Zoar Live Sample</span>
                 </button>
               </div>
 

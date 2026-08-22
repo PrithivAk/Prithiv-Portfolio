@@ -62,6 +62,7 @@ export const HardwareTerminal: React.FC<HardwareTerminalProps> = ({
   profile     - Print core CPU profile & objective
   skills      - Dump RAM technical skill registers
   projects    - Show Zoar Multi-Agent AI Assistant
+  live        - Run & Open Zoar AI Live Deployment (zoar-ai.vercel.app)
   github      - Open GitHub project & repository
   exp         - Show Barola & Techvolt internships
   education   - Show V.S.B. College & HSC details
@@ -83,11 +84,19 @@ OBJECTIVE: ${resumeData.objective}`;
       const p = resumeData.projects[0];
       output = `FLAGSHIP PROJECT: ${p.title} — ${p.subtitle}
 TECH STACK: ${p.techStack.join(', ')}
+LIVE SAMPLE: https://zoar-ai.vercel.app/
 GITHUB URL: ${p.githubUrl || resumeData.personalInfo.links.github}
 HIGHLIGHTS:
   - ${p.description[0]}
   - ${p.description[1]}
   - ${p.description[2]}`;
+    } else if (cmd === 'live' || cmd === 'demo' || cmd === 'run' || cmd === 'app') {
+      const targetUrl = resumeData.projects[0].liveDemoUrl || 'https://zoar-ai.vercel.app/';
+      window.open(targetUrl, '_blank');
+      output = `LAUNCHING LIVE APP SAMPLE...
+URL: ${targetUrl}
+[STATUS]: 🟢 Live on Vercel
+[SUCCESS]: Zoar Multi-Agent AI Assistant opened in new tab.`;
     } else if (cmd === 'github' || cmd === 'git' || cmd === 'repo' || cmd === 'zoar git') {
       const p = resumeData.projects[0];
       const targetUrl = p.githubUrl || resumeData.personalInfo.links.github;
@@ -188,7 +197,7 @@ HACKERRANK: ${resumeData.personalInfo.links.hackerrank}`;
         {/* Command Quick Presets */}
         <div className="px-3 py-2 bg-slate-900/90 border-t border-slate-800 flex flex-wrap gap-1.5 text-[10px] font-mono">
           <span className="text-slate-500 self-center">Presets:</span>
-          {['help', 'profile', 'skills', 'projects', 'github', 'exp', 'contact', 'overclock'].map((cmd, i) => (
+          {['help', 'live', 'profile', 'skills', 'projects', 'github', 'exp', 'contact', 'overclock'].map((cmd, i) => (
             <button
               key={i}
               onClick={() => handleRunCommand(cmd)}

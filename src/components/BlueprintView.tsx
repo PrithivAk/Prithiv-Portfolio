@@ -200,17 +200,25 @@ export const BlueprintView: React.FC = () => {
 
           <div>
             <div className="flex flex-wrap items-baseline justify-between gap-2 mb-1">
-              <h3 className="text-xs font-mono font-bold text-slate-100 print:text-slate-900 flex items-center gap-2">
+              <h3 className="text-xs font-mono font-bold text-slate-100 print:text-slate-900 flex flex-wrap items-center gap-2">
                 <span>{resumeData.projects[0].title} — {resumeData.projects[0].subtitle}</span>
+                <a
+                  href={resumeData.projects[0].liveDemoUrl || 'https://zoar-ai.vercel.app/'}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-cyan-950/80 border border-cyan-500/40 text-[10px] text-cyan-300 hover:underline print:text-cyan-800"
+                >
+                  <ExternalLink className="w-2.5 h-2.5" />
+                  <span>Live: zoar-ai.vercel.app</span>
+                </a>
                 <a
                   href={resumeData.projects[0].githubUrl || resumeData.personalInfo.links.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-[10px] text-cyan-400 hover:underline print:text-cyan-800"
+                  className="inline-flex items-center gap-1 text-[10px] text-purple-400 hover:underline print:text-slate-800"
                 >
                   <Github className="w-3 h-3" />
-                  <span>GitHub Repository</span>
-                  <ExternalLink className="w-2.5 h-2.5" />
+                  <span>GitHub</span>
                 </a>
               </h3>
               <span className="text-[11px] font-mono text-cyan-400 print:text-slate-700">
